@@ -31,3 +31,41 @@ def doomguy():
     doomguy.rect.y = 300
 
     return doomguy
+
+def imp():
+    imp = sprite.Sprite()
+    
+    imp.spriteSheet = image.load("./img/imp-spritesheet.png").convert()
+
+    frames.imp_abajo(imp)
+    frames.imp_ataque(imp)
+
+    imp.rect.x = 75
+    imp.rect.y = 300
+
+    return imp
+
+def fireball():
+    fireball = sprite.Sprite()
+
+    fireball.spriteSheet = image.load("./img/fireball.png").convert()
+
+    frames.fireball_frames(fireball)
+
+    # no deben de aparecer hasta que el imp ataque
+    fireball.rect.x = 800
+    fireball.rect.y = 600
+
+    return fireball
+
+def bala():
+    bala = sprite.Sprite()
+
+    bala.image = image.load("./img/bala.png")
+
+    bala.rect = bala.image.get_rect()
+
+    bala.rect.x = 850
+    bala.rect.y = 650
+
+    return bala
