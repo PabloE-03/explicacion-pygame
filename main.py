@@ -5,7 +5,7 @@ import lib.frames as frames
 import lib.colisiones as colisiones
 import random
 
-def admin(superficie,doomguy,texto):
+def admin(superficie,doomguy,texto,solo):
     teclas_admin = pygame.key.get_pressed()
     if(teclas_admin[pygame.K_u]):
         superficie=True
@@ -13,12 +13,16 @@ def admin(superficie,doomguy,texto):
         doomguy = sprites.doomguy()
         superficie = False
         texto = False
+        solo = False
     if(teclas_admin[pygame.K_p]):
         texto = True
-    return superficie,doomguy,texto
+    if(teclas_admin[pygame.K_h]):
+        solo = True
+    return superficie,doomguy,texto,solo
 # variables de administracion
 superficie = False
 texto = False
+solo = False
 # definicion de la escena
 WIDTH = 800
 HEIGHT = 600 
@@ -139,8 +143,10 @@ while running:
         textoY = "coords y:"+str(tot_sprites[1].rect.y)
         transmitirY = fuente.render(textoY,1,(255,255,255))
         screen.blit(transmitirY,(100,540))
+    if(solo):
+        tot_sprites[2].rect.y = 600
 
-    superficie,tot_sprites[1],texto = admin(superficie,tot_sprites[1],texto)
+    superficie,tot_sprites[1],texto,solo = admin(superficie,tot_sprites[1],texto,solo)
 
     # repintado de la pantalla
     pygame.display.flip()
