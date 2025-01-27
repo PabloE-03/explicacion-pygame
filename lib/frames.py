@@ -201,28 +201,28 @@ def actualizar_frames_imp(imp):
 def animacion_ataque(imp,tiempo,derecha,ataque,despliegue):
     tiempo+=1
     if(derecha==0):
-        if(tiempo<=5):
+        if(tiempo<=10):
             imp.image = imp.frame_ataque_i[0]
             
-        elif(tiempo>5 and tiempo<=15):
+        elif(tiempo>10 and tiempo<=20):
             imp.image = imp.frame_ataque_i[1]
         elif(tiempo==34):
             despliegue = True
-        elif(tiempo>15 and tiempo<35):
+        elif(tiempo>20 and tiempo<35):
             imp.image = imp.frame_ataque_i[2]
         else:
             ataque=False
             despliegue = False
             tiempo=0
     else:
-        if(tiempo<=5):
+        if(tiempo<=10):
             imp.image = imp.frame_ataque_d[0]
             despliegue = False
-        elif(tiempo>5 and tiempo<=15):
+        elif(tiempo>10 and tiempo<=20):
             imp.image = imp.frame_ataque_d[1]
         elif(tiempo==34):
             despliegue = True
-        elif(tiempo>15 and tiempo<35):
+        elif(tiempo>20 and tiempo<35):
             imp.image = imp.frame_ataque_d[2]
         else:
             ataque=False
